@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <%- include('./components/headTag') -%>
+</head>
+<body>
+    <%- include('./components/navbar') -%>    
+        <!-- - Back to all users -->
+
+        <div class="container mt-2">
+          <a href="/" class="btn btn-secondary fw-bold ">&larr; Back</a>
+      </div>
+
+<div class="container mt-5">
+
+     <!-- - Alert msg -->
+     <% if(msg !="" ){%>
+      <div class="alert alert-success text-center " role="alert" id="addMsg">
+
+          <%=msg %>
+      </div>
+      <%} %>
+
+  <div class="container mt-5 bg-primary text-center text-light fw-30 p-2">
+    <h3>Deposite and Withdraw</h3>
+  </div>
+<form action="/balance" method="POST" >
+    <div class="form-group  mt-3">
+      <label for="exampleInputPassword1">Account Change Number</label>
+      <input type="number" class="form-control" id="exampleInputPassword1" name="amountChange" placeholder="Positive Deposite and Negative Withdraw">
+    </div>
+    <button type="submit" class="btn btn-primary mt-3 text-center">Submit</button>
+  </form>
+</div>
+
+    <%- include('./components/bootstrapScript') -%>
+    <script>
+        let alert = document.getElementById('addMsg');
+    setTimeout(() => {
+        alert.style.visibility = "hidden"
+    }, 2000)
+    </script>
+</body>
+</html>
